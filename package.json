@@ -1,0 +1,28 @@
+{
+  "name": "cpio2tar",
+  "version": "0.0.0",
+  "description": "Convert a CPIO archive file in a TAR one",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piranna/cpio2tar.git"
+  },
+  "keywords": [
+    "cpio",
+    "tar",
+    "convert"
+  ],
+  "author": "Jesús Leganés Combarro 'piranna' <piranna@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piranna/cpio2tar/issues"
+  },
+  "homepage": "https://github.com/piranna/cpio2tar#readme",
+  "dependencies": {
+    "cpio-stream": "^1.2.3",
+    "tar-stream": "^1.5.1"
+  }
+}
