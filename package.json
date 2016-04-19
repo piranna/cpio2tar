@@ -1,8 +1,8 @@
 {
   "name": "cpio2tar",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Convert a CPIO archive file in a TAR one",
-  "main": "server.js",
+  "bin": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,6 +23,6 @@
   "homepage": "https://github.com/piranna/cpio2tar#readme",
   "dependencies": {
     "cpio-stream": "^1.2.3",
-    "tar-stream": "^1.5.1"
+    "tar-stream": "^1.5.2"
   }
 }
