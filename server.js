@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-var cpio = require('cpio-stream')
-var tar  = require('tar-stream')
+const cpio   = require('cpio-stream')
+const gunzip = require('gunzip-maybe')
+const tar    = require('tar-stream')
 
 
-var extract = cpio.extract()
-var pack    = tar.pack()
+const extract = cpio.extract()
+const pack    = tar.pack()
 
 extract.on('entry', function(header, stream, callback)
 {
@@ -14,5 +15,5 @@ extract.on('entry', function(header, stream, callback)
 
 extract.on('finish', pack.finalize.bind(pack))
 
-process.stdin.pipe(extract)
+process.stdin.pipe(gunzip()).pipe(extract)
 pack.pipe(process.stdout)
