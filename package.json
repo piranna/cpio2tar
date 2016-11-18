@@ -1,6 +1,6 @@
 {
   "name": "cpio2tar",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Convert a CPIO archive file in a TAR one",
   "bin": "server.js",
   "scripts": {
