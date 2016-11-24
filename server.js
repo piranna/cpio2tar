@@ -1,19 +1,15 @@
 #!/usr/bin/env node
 
-const cpio   = require('cpio-stream')
+const createReadStream = require('fs').createReadStream
+
 const gunzip = require('gunzip-maybe')
-const tar    = require('tar-stream')
+
+const cpio2tar = require('.')
 
 
-const extract = cpio.extract()
-const pack    = tar.pack()
+var input = process.stdin
 
-extract.on('entry', function(header, stream, callback)
-{
-  stream.pipe(pack.entry(header, callback))
-})
+const filepath = process.argv[2]
+if(filepath) input = createReadStream(filepath)
 
-extract.on('finish', pack.finalize.bind(pack))
-
-process.stdin.pipe(gunzip()).pipe(extract)
-pack.pipe(process.stdout)
+input.pipe(gunzip()).pipe(cpio2tar(process.stdout))
